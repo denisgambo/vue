@@ -8,7 +8,7 @@ function checkStudent(obj){
     return isEmpty
 }
 
-const successmessage = (message)=>{
+const errormessage = (message)=>{
     swal.fire({
        
         icon:'error',
@@ -17,7 +17,7 @@ const successmessage = (message)=>{
     })
 }
 
-const errormessage = (message)=>{
+const successmessage = (message)=>{
     swal.fire({
         position:'top-end',
         icon:'success',
