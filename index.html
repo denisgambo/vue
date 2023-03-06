@@ -75,7 +75,7 @@
                             <h5 class="card-title flex-grow-1 text-center">Students list</h5>
                             <div class="d-flex ">
                                 <a href="" @click.prevent="goToCreateForm()"  class="btn btn-link d-block"> <i class="fas fa-user-plus"></i> Add a new student </a>
-                                <input type="text" name="" id="" class="form-control">
+                                <input type="search" name="searchKey" id="" class="form-control" v-model="searchKey">
                             </div>
                         </div>
 
@@ -107,7 +107,6 @@
             </div>
             
         </div>
-        
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.3/sweetalert2.all.js" integrity="sha512-5gz/at+6LT6tuaX/ritelLOHwVc0CoXsspPbUBPdoIrOLshcpguRTMBAKVZCdG//YdwyYP2c4n7NMaDqVXWTJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     

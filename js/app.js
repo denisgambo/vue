@@ -40,10 +40,12 @@ const App = {
                 birthday:"",
                 level:""
             },
-            allstudents:[]
+            allstudents:[],
+            searchKey:"",
 
         }
     },
+    
     mounted(){
         this.changeNavigationState("home");
         this.allStudents();
