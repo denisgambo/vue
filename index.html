@@ -36,22 +36,23 @@
                         <h5 class="card-title flex-grow-1">Formulaire de création de nouvel étudiant</h5>
                         <form class="row g-3" @submit.prevent="submitStudent">
                             <div class="col-6">
-                              <label for="inputFirstname" class="form-label">Nom(s)</label>
+                              <label for="inputFirstname" class="form-label">First name</label>
                               <input v-model="newStudent.firstname" required type="text" class="form-control" id="inputFirstname">
                             </div>
                             <div class="col-6">
-                              <label for="inputLastname" class="form-label">Prénom(s)</label>
+                              <label for="inputLastname" class="form-label">Last name</label>
                               <input v-model="newStudent.lastname" required type="text" class="form-control" id="inputLastname">
                             </div>
                             <div class="col-6">
-                              <label for="inputDatenaissance" class="form-label">Date de naissance</label>
+                              <label for="inputDatenaissance" class="form-label">Birth day</label>
                               <input v-model="newStudent.birthday" required type="date" class="form-control" id="inputDatenaissance">
                             </div>
                             <div class="col-6">
-                              <label for="selectNiveauScolaire" class="form-label">Niveau scolaire</label>
+                              <label for="selectNiveauScolaire" class="form-label">Level</label>
                               <select v-model="newStudent.level" required id="selectNiveauScolaire" class="form-select">
                                   <option value=""></option>
-                                  <option value="Terminal A">Terminal A</option>
+                                  <option value="Licence 1">Licence 1</option>
+                                  <option value="Licence 2">Licence 2</option>
                                   <option value="Terminal D">Terminal D</option>
                                   <option value="Terminal C">Terminal C</option>
                                   <option value="Première A">Première A</option>
@@ -80,22 +81,22 @@
 
                         <table class="table table-bordered table-striped">
                             <thead>
-                                <th class="text-center">Nom(s)</th>
-                                <th class="text-center">Prénom(s)</th>
-                                <th class="text-center">Date de naissance</th>
-                                <th class="text-center">Niveau Scolaire</th>
+                                <th class="text-center">First name</th>
+                                <th class="text-center">Last name</th>
+                                <th class="text-center">Birth day</th>
+                                <th class="text-center">Level</th>
                                 <th class="text-center">Action</th>
                             </thead>
                            
                             <tbody>
-                                <tr >
-                                      <td class="text-center"> Test </td>
-                                      <td class="text-center">Test </td>
-                                      <td class="text-center">Test</td>
-                                      <td class="text-center">Test</td>
+                                <tr v-for="st in allstudents">
+                                      <td class="text-center"> {{ st.firstname }} </td>
+                                      <td class="text-center">{{ st.lastname }} </td>
+                                      <td class="text-center">{{ st.birthday }}</td>
+                                      <td class="text-center">{{ st.level }}</td>
                                       <td class="text-center">
-                                          <button class="btn btn-link">edit<i class="fas fa-edit"></i></button>
-                                          <button class="btn btn-link">Delete<i class="fas fa-trash"></i></button>
+                                          <button class="btn btn-link" @click="updatestudentfunct(st)">edit<i class="fas fa-edit"></i></button>
+                                          <button class="btn btn-link" @click="removeStudent(st)">Delete<i class="fas fa-trash"></i></button>
                                       </td>
                                 </tr>
                             </tbody>

@@ -39,12 +39,14 @@ const App = {
                 lastname:"",
                 birthday:"",
                 level:""
-            }
+            },
+            allstudents:[]
 
         }
     },
     mounted(){
         this.changeNavigationState("home");
+        this.allStudents();
     },
     methods: {
         goToHome() {
@@ -60,6 +62,7 @@ const App = {
 
         submitStudent(){
             addStudent(this.newStudent)
+            this.allStudents()// To update automatically the list
             successmessage("Student inserted successfully")
             this.newStudent={
                 firstname:"",
@@ -85,6 +88,27 @@ const App = {
                 console.log(this.newStudent)
             } */
             
+        },
+
+        allStudents(){
+            this.allstudents = getLocalDB()
+        },
+        removeStudent(student){
+            deleteStudent(student)
+            this.allStudents() //to update automatically the list
+        },
+        //I can navigate to the the student registration and fill fields with the student that i want to update.
+        //But i don't when i click the button, it adds a new student because this button another function
+        //The name of the update function in api.js is updateStudent(student)
+        //How can i make the button call this function?
+        updatestudentfunct(student){
+            this.changeNavigationState("create")
+            this.newStudent = {
+                firstname: student.firstname,
+                lastname: student.lastname,
+                birthday: student.birthday,
+                level: student.level
+            }
         },
 
         changeNavigationState(destination) {
